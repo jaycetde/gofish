@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"github.com/stmcginnis/gofish/common"
+	"github.com/jaycetde/gofish/common"
 )
 
 // CompositionService is used to represent the Composition Service

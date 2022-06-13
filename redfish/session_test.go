@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stmcginnis/gofish/common"
+	"github.com/jaycetde/gofish/common"
 )
 
 var sessionBody = `{
