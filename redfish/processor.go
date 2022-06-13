@@ -43,6 +43,10 @@ const (
 // InstructionSet is the process instruction set used.
 type InstructionSet string
 
+type InstructionSetStruct struct {
+	Member InstructionSet
+}
+
 const (
 
 	// X86InstructionSet x86 32-bit.
@@ -67,6 +71,10 @@ const (
 
 // ProcessorArchitecture is processor architecture type.
 type ProcessorArchitecture string
+
+type ProcessorArchitectureStruct struct {
+	Member ProcessorArchitecture
+}
 
 const (
 
@@ -279,7 +287,7 @@ type Processor struct {
 	// InstructionSet shall contain the string which
 	// identifies the instruction set of the processor contained in this
 	// socket.
-	InstructionSet InstructionSet
+	InstructionSet []InstructionSetStruct
 	// Links is The Links property, as described by the Redfish
 	// Specification, shall contain references to resources that are related
 	// to, but not contained by (subordinate to), this resource.
@@ -304,7 +312,7 @@ type Processor struct {
 	Model string
 	// ProcessorArchitecture shall contain the string which
 	// identifies the architecture of the processor contained in this Socket.
-	ProcessorArchitecture ProcessorArchitecture
+	ProcessorArchitecture []ProcessorArchitectureStruct
 	// ProcessorID shall contain identification information for this processor.
 	ProcessorID ProcessorID `json:"ProcessorId"`
 	// ProcessorMemory shall be the memory

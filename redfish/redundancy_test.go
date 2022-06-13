@@ -19,7 +19,9 @@ var redundancyBody = `{
 		"MaxNumSupported": 2,
 		"MemberId": "Redundancy1",
 		"MinNumNeeded": 2,
-		"Mode": "Sparing",
+		"Mode": {
+			"Member": "Sparing"
+		},
 		"RedundancyEnabled": true,
 		"RedundancySet": [
 			"One",
@@ -53,7 +55,7 @@ func TestRedundancy(t *testing.T) {
 		t.Errorf("Invalid MaxNumSupported: %d", result.MaxNumSupported)
 	}
 
-	if result.Mode != SparingRedundancyMode {
+	if result.Mode[0].Member != SparingRedundancyMode {
 		t.Errorf("Invalid mode: %s", result.Mode)
 	}
 }
@@ -70,7 +72,7 @@ func TestRedundancyUpdate(t *testing.T) { // nolint:dupl
 	testClient := &common.TestClient{}
 	result.SetClient(testClient)
 
-	result.Mode = NotRedundantRedundancyMode
+	result.Mode[0].Member = NotRedundantRedundancyMode
 	result.RedundancyEnabled = true
 	err = result.Update()
 

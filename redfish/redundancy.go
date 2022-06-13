@@ -14,6 +14,10 @@ import (
 // RedundancyMode is the redundancy mode.
 type RedundancyMode string
 
+type RedundancyModeStruct struct {
+	Member RedundancyMode
+}
+
 const (
 	// FailoverRedundancyMode Failure of one unit will automatically cause
 	// its functions to be taken over by a standby or offline unit in the
@@ -54,7 +58,7 @@ type Redundancy struct {
 	MinNumNeeded int
 	// Mode shall contain the information about the redundancy mode of this
 	// subsystem.
-	Mode RedundancyMode
+	Mode []RedundancyModeStruct
 	// RedundancyEnabled shall be a boolean indicating whether the redundancy is
 	// enabled.
 	RedundancyEnabled bool
